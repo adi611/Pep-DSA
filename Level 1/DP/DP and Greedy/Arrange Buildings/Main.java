@@ -7,13 +7,16 @@ public class Main {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
 
-        int countBg = 1, countPlot = 1;
+        int countWaysEndWithBg = 1, countWaysEndWithPlot = 1;
 
         for (int i = 1; i < n; i++) {
-            countBg = countPlot;
-            countPlot += countBg;
+            int temp = countWaysEndWithBg;
+            countWaysEndWithBg = countWaysEndWithPlot;
+            countWaysEndWithPlot += temp;
         }
-        System.out.println(countBg * countBg);
+
+        long waysOneSide = countWaysEndWithBg + countWaysEndWithPlot;
+        System.out.println(waysOneSide * waysOneSide);
     }
 
 }
